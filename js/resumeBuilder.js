@@ -22,7 +22,7 @@
 
 // create objects with to store user resume data
 
-var bio = {'name':'Jane Claire', 'role':'Front-end Development', 'contact':{'mobile' : '555-555-5555', 'e-mail':'xxxxxx@gmail.com','github':'github.com/pixiephreak','twitter':'@xxxxx', 'location':'Washington, D.C.'},
+var bio = {'name':'Jane Claire', 'role':'Front-end Development', 'contacts':{'mobile' : '555-555-5555', 'email':'xxxxxx@gmail.com','github':'github.com/pixiephreak','twitter':'@xxxxx', 'location':'Washington, D.C.'},
 'welcomeMessage': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 'skills':['Project Management', 'Instruction', 'Graphic Design', 'Installation Design', 'HTML', 'Javascript', 'CSS', 'Python', 'Adobe Suite'], 'bioPic':'images/fry.jpg'};
 
@@ -44,25 +44,29 @@ var projects = {'projects':[{'title':'Project 1', 'dates':'2014-2015','descripti
 
 // populate html with user bio info
 
-var formattedName = HTMLheaderName.replace('%data%', bio.name);
-$('#header').prepend(formattedName);
 
-var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-$('#header').prepend(formattedRole);
+	var formattedName = HTMLheaderName.replace('%data%', bio.name);
+	var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+	var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
+	var formattedEmail = HTMLemail.replace('%data%',bio.contacts.email);
+	var formattedGithub = HTMLgithub.replace('%data%',bio.contacts.github);
+	var formattedTwitter = HTMLtwitter.replace('%data%',bio.contacts.twitter);
+	var formattedLocation = HTMLlocation.replace('%data%',bio.contacts.location);
+	var formattedPic = HTMLbioPic.replace('%data%', bio.bioPic);
 
-var formattedPic = HTMLbioPic.replace('%data%', bio.bioPic);
-$('#header').prepend(formattedPic);
+
+	$('#header').prepend(formattedPic,formattedRole, formattedName, formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation);
 
 
-if(bio.skills.length > 0){
+	if(bio.skills.length > 0){
 
-	$('#header').append(HTMLskillsStart);
+		$('#header').append(HTMLskillsStart);
 
-	for (skill in bio.skills){
-		formattedSkill = HTMLskills.replace('%data%',bio.skills[skill]);
-		$('#skills').append(formattedSkill);
+		for (var i=0; i<skills.length-1; i++){
+			formattedSkill = HTMLskills.replace('%data%',bio.skills[i]);
+			$('#skills').append(formattedSkill);
+		}
 	}
-}
 
 // populate html with user work experience
 // TO-DO: CHANGE FOR IN LOOPS TO FOREACH
@@ -80,8 +84,8 @@ function displayWork(){
 		var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
 		$('.work-entry:last').append(formattedDates);
 
-		var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
-		$('.work-entry:last').append(formattedLocation);
+		var formattedWorkLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+		$('.work-entry:last').append(formattedWorkLocation);
 
 		var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
 		$('.work-entry:last').append(formattedDescription);
