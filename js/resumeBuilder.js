@@ -47,6 +47,7 @@ var projects = {'projects':[{'title':'Project 1', 'dates':'2014-2015','descripti
 
 	var formattedName = HTMLheaderName.replace('%data%', bio.name);
 	var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+	var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
 	var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
 	var formattedEmail = HTMLemail.replace('%data%',bio.contacts.email);
 	var formattedGithub = HTMLgithub.replace('%data%',bio.contacts.github);
@@ -55,14 +56,14 @@ var projects = {'projects':[{'title':'Project 1', 'dates':'2014-2015','descripti
 	var formattedPic = HTMLbioPic.replace('%data%', bio.bioPic);
 
 
-	$('#header').prepend(formattedPic,formattedRole, formattedName, formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation);
+	$('#header').prepend(formattedName, formattedRole, formattedPic, formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation, formattedWelcome);
 
 
 	if(bio.skills.length > 0){
 
 		$('#header').append(HTMLskillsStart);
 
-		for (var i=0; i<skills.length-1; i++){
+		for (var i=0; i<bio.skills.length-1; i++){
 			formattedSkill = HTMLskills.replace('%data%',bio.skills[i]);
 			$('#skills').append(formattedSkill);
 		}
