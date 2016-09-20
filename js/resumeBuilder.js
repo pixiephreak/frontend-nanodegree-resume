@@ -26,11 +26,11 @@ var bio = {'name':'Jane Claire', 'role':'Front-end Development', 'contacts':{'mo
 'welcomeMessage': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 'skills':['Project Management', 'Instruction', 'Graphic Design', 'Installation Design', 'HTML', 'Javascript', 'CSS', 'Python', 'Adobe Suite'], 'bioPic':'images/fry.jpg'};
 
-var education = {'Schools':[{'name':'Instituto Peruano de Arte y Diseno (Peruvian Institute of Design)', 'degree':'Certificate', 'majors':['Graphic Design', 'Visual Fundamentals'], 'location':'Lima, Peru', 'dates':'June, 2010', 'url': 'www.xxxx.com'},
-{'name':'Kalamazoo College', 'degree':'Bachelor of Arts', 'majors':['Anthropology and Sociology', 'French'], 'location':'Kalamazoo, Michigan', 'dates':'June 2007', 'url': 'www.xxxx.com'}],
+var education = {'schools':[{'name':'Instituto Peruano de Arte y Diseno (Peruvian Institute of Design)', 'location':'Lima, Peru', 'degree':'Certificate', 'majors':['Graphic Design','Visual Fundamentals'], 'dates':'January - June, 2010 (completed one year program in six months)', 'url': 'www.xxxx.com'},
+{'name':'Kalamazoo College', 'degree':'Bachelor of Arts', 'majors':['Anthropology and Sociology', 'French'], 'location':'Kalamazoo, Michigan', 'dates':'September 2003 - June 2007', 'url': 'www.xxxx.com'}],
 'onlineCourses': [{'title':'Nanodegree: Front End Development', 'school':'Udacity','dates':'September-December 2016','url':'www.udacity.com'},{'title':'Specialization: Web Design for Everybody (Basics of Web Development and Coding)',
-'school':'Coursera (University of Michigan School of Information', 'dates':'April-July 2016', 'url': 'https://www.coursera.org/specializations/web-design'}, {'title':'Specialization: Programming for Everybody (Getting Started with Python)',
-'school':'Coursera (University of Michigan School of Information', 'dates':'December-June 2016', 'url': 'https://www.coursera.org/learn/python'}]};
+'school':'Coursera (University of Michigan School of Information)', 'dates':'April-July 2016', 'url': 'https://www.coursera.org/specializations/web-design'}, {'title':'Specialization: Programming for Everybody (Getting Started with Python)',
+'school':'Coursera (University of Michigan School of Information)', 'dates':'December-June 2016', 'url': 'https://www.coursera.org/learn/python'}]};
 
 var work = {'jobs':[{'title':'Designer','employer':'Chris by Christopher Bu', 'dates':'August 2015-February 2016', 'location':'Beijing, China',
 'description':'Assistant to designer Christopher Bu. Translated designs into digital files for use in production, specializing in surface design using Adobe Illustrator, locating digital assets, and art historical research.'},
@@ -42,8 +42,40 @@ var projects = {'projects':[{'title':'Project 1', 'dates':'2014-2015','descripti
 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 }], 'images':['images/fry.jpg', 'images/fry.jpg']};
 
-// populate html with user bio info
+// populate html with user bio info using a function
 
+// function displayBio(){
+
+// 	var formattedName = HTMLheaderName.replace('%data%', bio.name);
+// 	var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+// 	var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
+// 	var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
+// 	var formattedEmail = HTMLemail.replace('%data%',bio.contacts.email);
+// 	var formattedGithub = HTMLgithub.replace('%data%',bio.contacts.github);
+// 	var formattedTwitter = HTMLtwitter.replace('%data%',bio.contacts.twitter);
+// 	var formattedLocation = HTMLlocation.replace('%data%',bio.contacts.location);
+// 	var formattedPic = HTMLbioPic.replace('%data%', bio.bioPic);
+
+
+// 	$('#header').prepend(formattedName, formattedRole, formattedPic, formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation, formattedWelcome);
+
+// 	//loop through skills array
+// 	if(bio.skills.length > 0){
+
+// 		$('#header').append(HTMLskillsStart);
+
+// 		for (var i=0; i<bio.skills.length-1; i++){
+// 			formattedSkill = HTMLskills.replace('%data%',bio.skills[i]);
+// 			$('#skills').append(formattedSkill);
+// 		}
+// 	}
+// };
+
+// displayBio();
+
+//Now, append that function to the bio object using encapsulation
+
+bio.display = function(){
 
 	var formattedName = HTMLheaderName.replace('%data%', bio.name);
 	var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
@@ -58,7 +90,7 @@ var projects = {'projects':[{'title':'Project 1', 'dates':'2014-2015','descripti
 
 	$('#header').prepend(formattedName, formattedRole, formattedPic, formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation, formattedWelcome);
 
-
+	//loop through skills array
 	if(bio.skills.length > 0){
 
 		$('#header').append(HTMLskillsStart);
@@ -68,11 +100,78 @@ var projects = {'projects':[{'title':'Project 1', 'dates':'2014-2015','descripti
 			$('#skills').append(formattedSkill);
 		}
 	}
+};
+
+bio.display();
+
+
+// populate html with user educational experience
+
+education.display = function(){
+
+	//loop through objects and arrays held in 'schools' object and assign data to inner html from helper.js
+	// var HTMLschoolStart = '<div class="education-entry"></div>';
+	// var HTMLschoolName = '<a href="#">%data%';
+	// var HTMLschoolDegree = ' -- %data%</a>';
+	// var HTMLschoolDates = '<div class="date-text">%data%</div>';
+	// var HTMLschoolLocation = '<div class="location-text">%data%</div>';
+	// var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+	for(school in education.schools){
+
+		//create 'education-entry' class for each entry
+		$('#education').append(HTMLschoolStart);
+
+		var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[school].name);
+		var formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[school].degree);
+		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		var formattedMajor = HTMLschoolMajor.replace('%data%', education.schools[school].majors);
+
+		$('.education-entry:last').append(formattedSchoolName, formattedSchoolLocation, formattedDegree, formattedMajor, formattedSchoolDates);
+
+	}
+
+
+
+}
+
+education.display();
+
+
+education.displayOnline = function(){
+	//append section heading for online courses
+	$('#education').append(HTMLonlineClasses);
+
+	// loop through online courses object in education object and assign data to inner html from helper.js
+	// var HTMLonlineClasses = '<h3>Online Classes and Programs</h3>';
+	// var HTMLonlineTitle = '<a href="#">%data%';
+	// var HTMLonlineSchool = ' - %data%</a>';
+	// var HTMLonlineDates = '<div class="date-text">%data%</div>';
+	// var HTMLonlineURL = '<br><a href="#">%data%</a>';
+	for(course in education.onlineCourses){
+		//create 'education-entry' class
+		$('#education').append(HTMLschoolStart);
+
+
+		var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[course].title);
+		var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[course].school);
+		var formattedOnlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[course].dates);
+		var formattedOnlineURL = HTMLonlineURL.replace('%data%', education.onlineCourses[course].url);
+
+		$('.education-entry:last').append(formattedOnlineTitle, formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
+
+
+
+	}
+
+}
+
+education.displayOnline();
 
 // populate html with user work experience
-// TO-DO: CHANGE FOR IN LOOPS TO FOREACH
+// TO-DO: CHANGE FOR IN LOOPS TO FOREACH?
 
-function displayWork(){
+work.display = function(){
 
 	for(job in work.jobs){
 		$('#workExperience').append(HTMLworkStart);
@@ -92,13 +191,15 @@ function displayWork(){
 		$('.work-entry:last').append(formattedDescription);
 
 	}
+
 }
 
-displayWork();
+work.display();
 
 // populate html with user's projects
+//TO_DO FIX IMAGE LOOP
 
-function displayProjects(){
+projects.display = function(){
 
 	for (project in projects.projects){
 		$('#projects').append(HTMLprojectStart);
@@ -111,7 +212,7 @@ function displayProjects(){
 		var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
 		$('.project-entry:last').append(formattedProjectDescription);
 
-		console.log(projects.projects[project].images);
+		// console.log(projects.projects[project].images);
 
 		// if (projects.projects[project].images.length > 0) {
 
@@ -122,20 +223,8 @@ function displayProjects(){
 		}
 	}
 
+projects.display();
 
-
-displayProjects();
-
-// TO-DO: revisit encapsulation
-
-// projects.display = function() {
-
-// $('#projects').append(HTMLprojectStart);
-// 		console.log('yep');
-// 	}
-// }
-
-// create international option for name formatting
 
 function inName(name){
 
