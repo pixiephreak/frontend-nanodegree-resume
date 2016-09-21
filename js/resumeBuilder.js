@@ -123,11 +123,12 @@ education.display = function(){
 
 		var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[school].name);
 		var formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[school].degree);
+		var formattedSchoolDegree = formattedSchoolName + formattedDegree;
 		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var formattedMajor = HTMLschoolMajor.replace('%data%', education.schools[school].majors);
 
-		$('.education-entry:last').append(formattedSchoolName, formattedSchoolLocation, formattedDegree, formattedMajor, formattedSchoolDates);
+		$('.education-entry:last').append(formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedMajor);
 
 	}
 
@@ -155,10 +156,11 @@ education.displayOnline = function(){
 
 		var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[course].title);
 		var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[course].school);
+		var formattedTitleSchool = formattedOnlineTitle + formattedOnlineSchool;
 		var formattedOnlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[course].dates);
 		var formattedOnlineURL = HTMLonlineURL.replace('%data%', education.onlineCourses[course].url);
 
-		$('.education-entry:last').append(formattedOnlineTitle, formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
+		$('.education-entry:last').append(formattedTitleSchool, formattedOnlineDates, formattedOnlineURL);
 
 
 
@@ -212,12 +214,12 @@ projects.display = function(){
 		var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
 		$('.project-entry:last').append(formattedProjectDescription);
 
-		// console.log(projects.projects[project].images);
+		// console.log(projects.projects[project].images.length);
 
 		// if (projects.projects[project].images.length > 0) {
 
-		// 	// for (image in projects.projects[project].images){
-		// 	// 	var formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[project].images[image]);
+		// 	// for (image in project.images){
+		// 	// 	var formattedProjectImage = HTMLprojectImage.replace('%data%', image);
 		// 	// 	$('.project-entry:last').append(formattedProjectImage);
 		// 	}
 		}
@@ -239,6 +241,10 @@ function inName(name){
 inName('Jane Claire');
 
 $('#main').append(internationalizeButton);
+
+function map(){
+
+}
 
 
 
