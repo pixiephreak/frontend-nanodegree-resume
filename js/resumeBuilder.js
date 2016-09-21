@@ -107,14 +107,19 @@ var work = {
 };
 
 var projects = {
-	'projects':[{
-		'title':'Project 1',
-		'dates':'2014-2015',
-		'description':'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-	}],
-	'images':[
-		'images/fry.jpg', 'images/fry.jpg'
-	]
+	'projects': [{
+		'title': 'Project 1',
+		'dates': 'Fall 2016',
+		'description': 'Resume built using javascript to fill out html.',
+		'images': ['images/fry.jpg','images/fry.jpg']
+
+	},{
+		'title': 'Project 2',
+		'dates': 'Fall 2016',
+		'description': 'Whatever the next project ends up being.',
+		'images': ['images/fry.jpg','images/fry.jpg']
+
+	}]
 };
 
 // populate html with user bio info using a function
@@ -219,11 +224,12 @@ education.displayOnline = function(){
 	$('#education').append(HTMLonlineClasses);
 
 	// loop through online courses object in education object and assign data to inner html from helper.js
-	// var HTMLonlineClasses = '<h3>Online Classes and Programs</h3>';
-	// var HTMLonlineTitle = '<a href="#">%data%';
-	// var HTMLonlineSchool = ' - %data%</a>';
-	// var HTMLonlineDates = '<div class="date-text">%data%</div>';
-	// var HTMLonlineURL = '<br><a href="#">%data%</a>';
+		// var HTMLonlineClasses = '<h3>Online Classes and Programs</h3>';
+		// var HTMLonlineTitle = '<a href="#">%data%';
+		// var HTMLonlineSchool = ' - %data%</a>';
+		// var HTMLonlineDates = '<div class="date-text">%data%</div>';
+		// var HTMLonlineURL = '<br><a href="#">%data%</a>';
+
 	for(course in education.onlineCourses){
 		//create 'education-entry' class
 		$('#education').append(HTMLschoolStart);
@@ -250,7 +256,17 @@ education.displayOnline();
 
 work.display = function(){
 
+	//loop through objects and arrays held in 'schools' object and assign data to inner html from helper.js
+		// var HTMLworkStart = '<div class="work-entry"></div>';
+		// var HTMLworkEmployer = '<a href="#">%data%';
+		// var HTMLworkTitle = ' - %data%</a>';
+		// var HTMLworkDates = '<div class="date-text">%data%</div>';
+		// var HTMLworkLocation = '<div class="location-text">%data%</div>';
+		// var HTMLworkDescription = '<p><br>%data%</p>';
+
+
 	for(job in work.jobs){
+
 		$('#workExperience').append(HTMLworkStart);
 
 		var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
@@ -278,8 +294,17 @@ work.display();
 
 projects.display = function(){
 
-	for (project in projects.projects){
+	//loop through objects and arrays held in 'schools' object and assign data to inner html from helper.js
+		// var HTMLprojectStart = '<div class="project-entry"></div>';
+		// var HTMLprojectTitle = '<a href="#">%data%</a>';
+		// var HTMLprojectDates = '<div class="date-text">%data%</div>';
+		// var HTMLprojectDescription = '<p><br>%data%</p>';
+		// var HTMLprojectImage = '<img src="%data%">';
+
+	for (var project=0; project < projects.projects.length; project++){
+
 		$('#projects').append(HTMLprojectStart);
+
 		var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
 		$('.project-entry:last').append(formattedProjectTitle);
 
@@ -289,20 +314,11 @@ projects.display = function(){
 		var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
 		$('.project-entry:last').append(formattedProjectDescription);
 
-		console.log(projects.images.length);
-		for (image in projects.images){
-			var formattedProjectImage = HTMLprojectImage.replace('%data%', project.image);
+		for (var image=0; image<projects.projects[project].images.length; image++){
+			var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 			$('.project-entry:last').append(formattedProjectImage);
 		}
 
-		// console.log(projects.projects[project].images.length);
-
-		// if (projects.projects[project].images.length > 0) {
-
-		// 	// for (image in project.images){
-		// 	// 	var formattedProjectImage = HTMLprojectImage.replace('%data%', image);
-		// 	// 	$('.project-entry:last').append(formattedProjectImage);
-		// 	}
 		}
 	}
 
