@@ -48,7 +48,7 @@ var bio ={
 		'Javascript', 'CSS', 'Python',
 		'Adobe Suite'
 	],
-	'bioPic':'images/fry.jpg'
+	'bioPic':'images/bioPic.jpg'
 
 };
 
@@ -175,8 +175,9 @@ bio.display = function(){
 	var formattedLocation = HTMLlocation.replace('%data%',bio.contacts.location);
 	var formattedPic = HTMLbioPic.replace('%data%', bio.bioPic);
 
-
-	$('#header').prepend(formattedName, formattedRole, formattedPic, formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation, formattedWelcome);
+	$('#header').prepend(formattedName, formattedRole);
+	$('#pic').append(formattedPic);
+	$('#topContacts').append(formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation, formattedWelcome);
 	$('#footerContacts').append(bio.contacts.phoneIcon);
 	$('#footerContacts').append(formattedMobile);
 	$('#footerContacts').append(bio.contacts.mailIcon);
