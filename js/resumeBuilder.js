@@ -22,25 +22,100 @@
 
 // create objects with to store user resume data
 
-var bio = {'name':'Jane Claire', 'role':'Front-end Development', 'contacts':{'mobile' : '555-555-5555', 'email':'xxxxxx@gmail.com','github':'github.com/pixiephreak','twitter':'@xxxxx', 'location':'Washington, D.C.'},
-'welcomeMessage': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-'skills':['Project Management', 'Instruction', 'Graphic Design', 'Installation Design', 'HTML', 'Javascript', 'CSS', 'Python', 'Adobe Suite'], 'bioPic':'images/fry.jpg'};
+var bio ={
+	'name':'Jane Claire',
+	'role':'Front-end Development',
+	'contacts':{
+		'mobile' : '555-555-5555',
+		'email':'xxxxxx@gmail.com',
+		'github':'github.com/pixiephreak',
+		'twitter':'@xxxxx',
+		'location':'Washington, D.C.'
+	},
+	'welcomeMessage': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+	'skills':[
+		'Project Management',
+		'Instruction', 'Graphic Design',
+		'Installation Design', 'HTML',
+		'Javascript', 'CSS', 'Python',
+		'Adobe Suite'
+	],
+	'bioPic':'images/fry.jpg'
 
-var education = {'schools':[{'name':'Instituto Peruano de Arte y Diseno (Peruvian Institute of Design)', 'location':'Lima, Peru', 'degree':'Certificate', 'majors':['Graphic Design','Visual Fundamentals'], 'dates':'January - June, 2010 (completed one year program in six months)', 'url': 'www.xxxx.com'},
-{'name':'Kalamazoo College', 'degree':'Bachelor of Arts', 'majors':['Anthropology and Sociology', 'French'], 'location':'Kalamazoo, Michigan', 'dates':'September 2003 - June 2007', 'url': 'www.xxxx.com'}],
-'onlineCourses': [{'title':'Nanodegree: Front End Development', 'school':'Udacity','dates':'September-December 2016','url':'www.udacity.com'},{'title':'Specialization: Web Design for Everybody (Basics of Web Development and Coding)',
-'school':'Coursera (University of Michigan School of Information)', 'dates':'April-July 2016', 'url': 'https://www.coursera.org/specializations/web-design'}, {'title':'Specialization: Programming for Everybody (Getting Started with Python)',
-'school':'Coursera (University of Michigan School of Information)', 'dates':'December-June 2016', 'url': 'https://www.coursera.org/learn/python'}]};
+};
 
-var work = {'jobs':[{'title':'Designer','employer':'Chris by Christopher Bu', 'dates':'August 2015-February 2016', 'location':'Beijing, China',
-'description':'Assistant to designer Christopher Bu. Translated designs into digital files for use in production, specializing in surface design using Adobe Illustrator, locating digital assets, and art historical research.'},
-{'title':'Visual Artist','employer':'Freelance', 'dates':'August 2004-Present', 'location':'Varying', 'description':'Visual artist specializing in conceptual new media, performance, and installation work. Working at galleries and alternative spaces in the U.S. and abroad.'},
-{'title':'Instructor: EFL and TOEFL','employer':'Kaplan Aspect', 'dates':'June 2008-October 2014', 'location':'Washington, DC', 'description':'Teacher of English as a foreign langauge to adult international students at all levels, specializing in TOEFL prep.'},
-{'title':'Graphic Designer','employer':'Freelance', 'dates':'June 2010-Present', 'location':'Varying', 'description':'Freelance graphic designer (digital/print) for clients in politics, entertainment, and fine art.'}]};
+var education = {
+	'schools':[{
+		'name':'Instituto Peruano de Arte y Diseno (Peruvian Institute of Design)',
+		'location':'Lima, Peru',
+		'degree':'Certificate',
+		'majors':['Graphic Design','Visual Fundamentals'],
+		'dates':'January - June, 2010 (completed one year program in six months)',
+		'url': 'www.xxxx.com'
+	},{
+		'name':'Kalamazoo College',
+		'location':'Kalamazoo, Michigan',
+		'degree':'Bachelor of Arts',
+		'majors':['Anthropology and Sociology', 'French'],
+		'dates':'September 2003 - June 2007', 'url':
+		'www.xxxx.com'
+	}],
+	'onlineCourses': [{
+		'title':'Nanodegree: Front End Development',
+		'school':'Udacity',
+		'dates':'September-December 2016',
+		'url':'www.udacity.com'
+	},{
+		'title':'Specialization: Web Design for Everybody (Basics of Web Development and Coding)',
+		'school':'Coursera (University of Michigan School of Information)',
+		'dates':'April-July 2016',
+		'url': 'https://www.coursera.org/specializations/web-design'
+	}, {
+		'title':'Specialization: Programming for Everybody (Getting Started with Python)',
+		'school':'Coursera (University of Michigan School of Information)',
+		'dates':'December-June 2016',
+		'url': 'https://www.coursera.org/learn/python'
+	}]
+};
 
-var projects = {'projects':[{'title':'Project 1', 'dates':'2014-2015','description':
-'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-}], 'images':['images/fry.jpg', 'images/fry.jpg']};
+var work = {
+	'jobs':[{
+		'title':'Designer',
+		'employer':'Chris by Christopher Bu',
+		'dates':'August 2015-February 2016',
+		'location':'Beijing, China',
+		'description':'Assistant to designer Christopher Bu. Translated designs into digital files for use in production, specializing in surface design using Adobe Illustrator, locating digital assets, and art historical research.'
+	},{
+		'title':'Visual Artist',
+		'employer':'Freelance',
+		'dates':'August 2004-Present',
+		'location':'Varying',
+		'description':'Visual artist specializing in conceptual new media, performance, and installation work. Working at galleries and alternative spaces in the U.S. and abroad.'
+	},{
+		'title':'Instructor: EFL and TOEFL',
+		'employer':'Kaplan Aspect',
+		'dates':'June 2008-October 2014',
+		'location':'Washington, DC',
+		'description':'Teacher of English as a foreign langauge to adult international students at all levels, specializing in TOEFL prep.'
+	},{
+		'title':'Graphic Designer',
+		'employer':'Freelance',
+		'dates':'June 2010-Present',
+		'location':'Varying',
+		'description':'Freelance graphic designer (digital/print) for clients in politics, entertainment, and fine art.'
+	}]
+};
+
+var projects = {
+	'projects':[{
+		'title':'Project 1',
+		'dates':'2014-2015',
+		'description':'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	}],
+	'images':[
+		'images/fry.jpg', 'images/fry.jpg'
+	]
+};
 
 // populate html with user bio info using a function
 
@@ -213,6 +288,12 @@ projects.display = function(){
 
 		var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
 		$('.project-entry:last').append(formattedProjectDescription);
+
+		console.log(projects.images.length);
+		for (image in projects.images){
+			var formattedProjectImage = HTMLprojectImage.replace('%data%', project.image);
+			$('.project-entry:last').append(formattedProjectImage);
+		}
 
 		// console.log(projects.projects[project].images.length);
 
