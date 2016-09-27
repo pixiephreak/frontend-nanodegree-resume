@@ -40,7 +40,7 @@ var bio ={
 
 
 	},
-	'welcomeMessage': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+	'welcomeMessage': 'I have a background in visual art and design, which has motivated me to learn more about front-end development, human/computer interaction, and technology.',
 	'skills':[
 		'Project Management',
 		'Instruction', 'Graphic Design',
@@ -119,13 +119,13 @@ var projects = {
 		'title': 'Project 1',
 		'dates': 'Fall 2016',
 		'description': 'Resume built using javascript to fill out html.',
-		'images': ['images/fry.jpg','images/fry.jpg']
+		'images': ['http://placehold.it/300x300','http://placehold.it/300x300']
 
 	},{
 		'title': 'Project 2',
 		'dates': 'Fall 2016',
 		'description': 'Whatever the next project ends up being.',
-		'images': ['images/fry.jpg','images/fry.jpg']
+		'images': ['http://placehold.it/300x300','http://placehold.it/300x300']
 
 	}]
 };
@@ -177,7 +177,8 @@ bio.display = function(){
 
 	$('#header').prepend(formattedName, formattedRole);
 	$('#pic').append(formattedPic);
-	$('#topContacts').append(formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation, formattedWelcome);
+	$('#message').append( formattedWelcome);
+	$('#topContacts').append(formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation);
 	$('#footerContacts').append(bio.contacts.phoneIcon);
 	$('#footerContacts').append(formattedMobile);
 	$('#footerContacts').append(bio.contacts.mailIcon);
